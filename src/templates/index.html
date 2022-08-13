@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Garble!</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<div class="levelSelect col-md-8 mx-auto" id="levelSelect">
+
+	
+			<div class="btn-group-vertical">
+
+				<button type="button" class="btn btn-default levelSelectButton" onclick="selectLevel(this.id)" id="level1" >Level 1</button>
+				<button type="button" class="btn btn-default levelSelectButton" onclick="selectLevel(this.id)" id="level2" >Level 2</button>
+				<button type="button" class="btn btn-default levelSelectButton" onclick="selectLevel(this.id)" id="level3" >Level 3</button>
+				<button type="button" class="btn btn-default levelSelectButton" onclick="selectLevel(this.id)" id="level4" >Level 4</button>
+				<button type="button" class="btn btn-default levelSelectButton" onclick="selectLevel(this.id)" id="level5" >Level 5</button>
+				<button type="button" class="btn btn-default levelSelectButton" onclick="selectLevel(this.id)" id="randLevel" >Random</button>
+				<button type="button" class="btn btn-default levelSelectButton" onclick="selectLevel(this.id)" id="endlessButton" >Endless (experimental)</button>
+
+			</div>
+	</div>
+	<div class="level" id="level">
+		<div class="grid-container" id="answers">
+
+		</div>	
+		<nav class="navbar fixed-top navbar-dark bg-dark">
+			<button type="button" class="btn btn-danger" id="quit" onclick="quit()">QUIT</button> 
+			<h1 id="levelHead"> Level x</h1>
+			<h2 id="timer"></h2>
+		</nav>
+	
+		<div class="footer">
+			<ul id="buttonList">
+              <!-- TODO:this may have to change since the number of letters won't always be six -->
+              {% for letter in data['letters'] %} 
+                <button > {{ letter }} </button> 
+
+              {% endfor %} 
+			</ul>
+			<input type="text" id="userInputBox" value="" required maxlength="6">
+			<button class="btn btn-dark" type="submit" id="submit" onclick="submit()">Submit</button>
+			<button id="shuffleButton" type="button" class="btn btn-large btn-warning">Shuffle</button>
+		</div>
+
+	</div>
+		
+
+
+
+
+	<script src="javascripts/game.js"></script>
+	<script src="javascripts/timer.js"></script>
+</div>
+</body>
+
+</html>
